@@ -15,9 +15,16 @@
         </mat-form-field>
 
         <div>
+            <label>Estimate Unit: </label>
+            <mat-radio-group formControlName="estimateUnit">
+                <mat-radio-button *ngFor = "let unit of units" value="{{unit}}">{{unit}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div>
             <label>State of Task: </label>
-            <mat-radio-group formControlName="state" *ngFor = "let state of states">
-                <mat-radio-button value="{{state}}">{{state}}</mat-radio-button>
+            <mat-radio-group formControlName="state">
+                <mat-radio-button *ngFor = "let state of states" value="{{state}}">{{state}}</mat-radio-button>
             </mat-radio-group>
         </div>
 

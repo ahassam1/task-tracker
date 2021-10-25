@@ -11,7 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CreateTaskFormComponent implements OnInit {
 
   taskForm: FormGroup;
-  states = ['Onhold', 'In-Progress', 'Complete']
+  units = [ 'minutes', 'hours', 'days', 'months'];
+  states = ['Onhold', 'In-Progress', 'Complete'];
 
   constructor(public dialogRef: MatDialogRef<TaskListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -21,8 +22,8 @@ export class CreateTaskFormComponent implements OnInit {
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
       estimate: new FormControl('', Validators.required),
-      estimateUnit: new FormControl('', Validators.required),
-      state: new FormControl('', Validators.required)
+      estimateUnit: new FormControl('minutes', Validators.required),
+      state: new FormControl('Onhold', Validators.required)
     });
   }
 

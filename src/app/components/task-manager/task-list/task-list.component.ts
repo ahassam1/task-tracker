@@ -14,7 +14,7 @@ export class TaskListComponent implements OnInit {
 
   openDialog(): void {
     let dialogRef = this.dialog.open(CreateTaskFormComponent, {
-      width: '500px',
+      width: '700px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
