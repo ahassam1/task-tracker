@@ -8,6 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskStatusComponent } from './task-status/task-status.component';
 import { CreateTaskFormComponent } from './task-list/create-task-form/create-task-form.component'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input'; 
+import { MatRadioModule } from '@angular/material/radio';
+
 
 
 @NgModule({
@@ -17,7 +23,12 @@ import { CreateTaskFormComponent } from './task-list/create-task-form/create-tas
     TaskManagerRoutingModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule
   ]
 })
 export class TaskManagerModule { }

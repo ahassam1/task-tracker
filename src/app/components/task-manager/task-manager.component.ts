@@ -18,7 +18,7 @@ export class TaskManagerComponent implements OnInit {
     state: 'test'
   }]
   
-  constructor(private getTasksService: GetTasksService) { }
+  constructor(private getTasksService: GetTasksService) { }  
 
   ngOnInit(): void {
     this.getTasksService.getTasks(this.taskArray).subscribe(tasks =>
