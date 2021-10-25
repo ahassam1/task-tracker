@@ -29,7 +29,7 @@ export class CreateTaskFormComponent implements OnInit {
 
 
   onSubmit(taskForm) {
-  
+    console.log(taskForm)
   }
   onNoClick(): void {
     this.dialogRef.close();
