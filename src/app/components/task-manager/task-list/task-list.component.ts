@@ -95,14 +95,14 @@ export class TaskListComponent implements OnInit {
     // mocking the get API call here, but this will always return an empty array. 
     // In real life this may contain some data 
     this.getTasksService.getTasks(this.apiTaskList).subscribe(taskList => {
-      console.log(taskList);
+      // console.log(taskList);
       this.apiTaskList = taskList;
     })
   }
 
   editRow(row: any): void {
     this.openEditDialog(row);
-    console.log(row);
+    // console.log(row);
   }
 
   deleteRow(row: any): void {
@@ -119,7 +119,7 @@ export class TaskListComponent implements OnInit {
 
     });
 
-    console.log(this.apiTaskList)
+    // console.log(this.apiTaskList)
 
   }
 

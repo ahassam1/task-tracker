@@ -15,8 +15,8 @@ export class EditTaskService {
   patchTask(taskArray: Task[], newTask: Task): Observable<Task[]> {
 
     let modifiedTaskArray = taskArray.map(originalTask => {
-      console.log(originalTask)
-      console.log(newTask)
+      // console.log(originalTask)
+      // console.log(newTask)
       if (originalTask.id === newTask.id) {
         return newTask;
       }

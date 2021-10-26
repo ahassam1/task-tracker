@@ -20,7 +20,7 @@ export class EditTaskFormComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.data.row) {
-      console.log(this.data.row)
+      // console.log(this.data.row)
       this.taskForm = new FormGroup({
         name: new FormControl(this.data.row.name, Validators.required),
         description: new FormControl(this.data.row.description, Validators.required),
