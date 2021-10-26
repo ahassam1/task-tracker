@@ -1,0 +1,32 @@
+.task-manager-grid-container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto;
+}
+.tutorial-card {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.task-list-container {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.task-status-container {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.info-button {
+    cursor: none;
+}
+.value {
+    margin-left: 5px;
+}
+.mat-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }

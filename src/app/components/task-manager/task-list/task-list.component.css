@@ -1,0 +1,41 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+.delete-button, .edit-button {
+    cursor: pointer;
+}
+
+.mat-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+
+}
+.mat-column-name {
+    flex: 0 0 20%;
+}
+
+.mat-column-description {
+    flex: 0 0 30%;
+}
+
+.mat-column-estimate {
+    flex: 0 0 10%;
+}
+
+.mat-column-estimateUnit {
+    flex: 0 0 10%;
+}
+.table-hidden {
+    visibility: hidden;
+}
+.red-chip {
+    background-color: #e9967a;
+}
+.yellow-chip {
+    background-color: #e8f48c;
+}
+.green-chip {
+    background-color: #2e8b57;
+}
