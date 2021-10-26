@@ -32,6 +32,12 @@ export class TaskManagerComponent implements OnInit {
       this.taskList = taskList;
     }
 
+    //reset times 
+    this.totalPlanned = 0;
+    this.totalInProgress = 0;
+    this.totalComplete = 0;
+    this.total = 0;
+
     this.updateTimes();
     console.log(this.totalPlanned, this.totalInProgress, this.totalComplete, this.total)
   }
