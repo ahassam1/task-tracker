@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TaskListComponent } from '../task-list.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,6 +13,7 @@ export class CreateTaskFormComponent implements OnInit {
   taskForm: FormGroup;
   units = [ 'minutes', 'hours', 'days', 'months'];
   states = ['Onhold', 'In-Progress', 'Complete'];
+  @Output() addEvent = new EventEmitter<FormGroup>();
 
   constructor(public dialogRef: MatDialogRef<TaskListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -29,8 +30,10 @@ export class CreateTaskFormComponent implements OnInit {
 
 
   onSubmit(taskForm) {
-    console.log(taskForm)
+    console.log(taskForm);
+    this.dialogRef.close(taskForm.value)
   }
+  
   onNoClick(): void {
     this.dialogRef.close();
   }
