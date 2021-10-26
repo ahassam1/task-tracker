@@ -15,6 +15,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { EditTaskFormComponent } from './task-list/edit-task-form/edit-task-form.component';
 import { ConfirmDeleteComponent } from './task-list/confirm-delete/confirm-delete.component';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -32,6 +34,8 @@ import { ConfirmDeleteComponent } from './task-list/confirm-delete/confirm-delet
     MatInputModule,
     MatRadioModule,
     MatTableModule,
+    MatChipsModule,
+    MatListModule
   ]
 })
 export class TaskManagerModule { }

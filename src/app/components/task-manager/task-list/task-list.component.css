@@ -30,3 +30,12 @@
 .table-hidden {
     visibility: hidden;
 }
+.red-chip {
+    background-color: #e9967a;
+}
+.yellow-chip {
+    background-color: #e8f48c;
+}
+.green-chip {
+    background-color: #2e8b57;
+}

@@ -42,58 +42,58 @@ export class TaskManagerComponent implements OnInit {
         switch (task.estimateUnit) {
           case ('minutes'): {
             if (task.state === 'Planned') {
-              this.totalPlanned = (1 / 60) * task.estimate;
+              this.totalPlanned += (1 / 60) * Number(task.estimate);
             }
             else if (task.state === 'In-Progress') {
-              this.totalInProgress = (1 / 60) * task.estimate;
+              this.totalInProgress += (1 / 60) * Number(task.estimate);
             }
             else if (task.state === 'Complete') {
-              this.totalComplete = (1 / 60) * task.estimate;
+              this.totalComplete += (1 / 60) * Number(task.estimate);
             }
             break;
           }
 
           case ('hours'): {
             if (task.state === 'Planned') {
-              this.totalPlanned = task.estimate;
+              this.totalPlanned += Number(task.estimate);
             }
             else if (task.state === 'In-Progress') {
-              this.totalInProgress = task.estimate;
+              this.totalInProgress += Number(task.estimate);
             }
             else if (task.state === 'Complete') {
-              this.totalComplete = task.estimate;
+              this.totalComplete += Number(task.estimate);
             }
             break;
           }
 
           case ('days'): {
             if (task.state === 'Planned') {
-              this.totalPlanned = (24) * task.estimate;
+              this.totalPlanned += (24) * Number(task.estimate);
             }
             else if (task.state === 'In-Progress') {
-              this.totalInProgress = (24) * task.estimate;
+              this.totalInProgress += (24) * Number(task.estimate);
             }
             else if (task.state === 'Complete') {
-              this.totalComplete = (24) * task.estimate;
+              this.totalComplete += (24) * Number(task.estimate);
             }
             break;
           }
 
           case ('months'): {
             if (task.state === 'Planned') {
-              this.totalPlanned = (730.5) * task.estimate;
+              this.totalPlanned += (730.5) * Number(task.estimate);
             }
             else if (task.state === 'In-Progress') {
-              this.totalInProgress = (730.5) * task.estimate;
+              this.totalInProgress += (730.5) * Number(task.estimate);
             }
             else if (task.state === 'Complete') {
-              this.totalComplete = (730.5) * task.estimate;
+              this.totalComplete += (730.5) * Number(task.estimate);
             }
             break;
           }
         }
       })
-      this.total= this.totalComplete + this.totalInProgress + this.totalPlanned;
+      this.total = this.totalInProgress + this.totalPlanned;
     }
   }
 

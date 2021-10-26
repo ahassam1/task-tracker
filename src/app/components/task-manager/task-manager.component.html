@@ -17,8 +17,34 @@
     </mat-card>
 
     <mat-card class='task-status-container'>
-        <mat-card-title>Task Status</mat-card-title>
+        <mat-card-title>Task Status (Hours)</mat-card-title>
+<mat-list>
+    <mat-list-item>
+        <mat-icon>schedule</mat-icon>
+        <h4>Total Time for Tasks In Planning:</h4>
+        <p class ='value'>{{totalPlanned}}</p>
+    </mat-list-item>
 
+    <mat-list-item>
+        <mat-icon>work</mat-icon>
+        <h4>Total Time for Tasks In-Progress:</h4>
+        <p class ='value'>{{totalInProgress}}</p>
+    </mat-list-item>
+
+    <mat-list-item>
+        <mat-icon>done</mat-icon>
+        <h4>Total Time for Tasks Complete:</h4>
+        <p class ='value'>{{totalComplete}}</p>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+        <mat-icon>unpublished</mat-icon>
+        <h4>Total Time for Tasks Not Complete:</h4>
+        <p class ='value'>{{total}}</p>
+    </mat-list-item>
+</mat-list>
     </mat-card>
 
 </div>
