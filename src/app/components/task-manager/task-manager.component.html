@@ -13,7 +13,7 @@
     <mat-card class='task-list-container'>
         <mat-card-title>Task List</mat-card-title>
 
-        <app-task-list></app-task-list>
+        <app-task-list (updateParentTaskList) = "taskListUpdate($event)"></app-task-list>
     </mat-card>
 
     <mat-card class='task-status-container'>

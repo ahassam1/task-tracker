@@ -1,6 +1,6 @@
 .button-container {
     display: flex;
-    justify-content: right;
+    justify-content: center;
 }
 .delete-button, .edit-button {
     cursor: pointer;
@@ -26,4 +26,7 @@
 
 .mat-column-estimateUnit {
     flex: 0 0 10%;
+}
+.table-hidden {
+    visibility: hidden;
 }

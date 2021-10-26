@@ -13,4 +13,8 @@ export class TaskManagerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  taskListUpdate(taskList: Event){
+    console.log(taskList)
+  }
+
 }

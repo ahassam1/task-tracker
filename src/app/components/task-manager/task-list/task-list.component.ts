@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskFormComponent } from './create-task-form/create-task-form.component';
 import { Task } from 'src/app/models/task.model';
@@ -20,8 +20,10 @@ export class TaskListComponent implements OnInit {
 
   currentId: number = 1;
   apiTaskList: Task[] = [];
+  taskListLength = true;
   displayedColumns = ['name', 'description', 'estimate', 'estimateUnit', 'state', 'action'];
-  @ViewChild(MatTable) table: MatTable<any>;
+  @ViewChild(MatTable) table: MatTable<Task[]>;
+  @Output() updateParentTaskList = new EventEmitter<any>();
 
   constructor(public dialog: MatDialog,
     private getTasksService: GetTasksService,
@@ -29,7 +31,7 @@ export class TaskListComponent implements OnInit {
     private deleteTaskService: DeleteTaskService,
     private editTaskService: EditTaskService) { }
 
-  openDialog(): void {
+  openCreateDialog(): void {
     let dialogRef = this.dialog.open(CreateTaskFormComponent, {
       width: '700px',
     });
@@ -46,15 +48,27 @@ export class TaskListComponent implements OnInit {
           state: result.state,
         }).subscribe(tasklist => {
           this.apiTaskList = tasklist;
+
+          //update the table
+          this.table.renderRows();
+
+          //update parent
+          this.updateParent();
+
+          // value of ID is incremented after every push 
+          this.currentId++;
+
         })
-
-        //update the table
-        this.table.renderRows();
-
-        // value of ID is incremented after every push 
-        this.currentId++;
       }
+
+
+
     });
+
+
+
+
+
   }
 
   openEditDialog(row: any): void {
@@ -65,14 +79,20 @@ export class TaskListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        //mock patch API call
         this.editTaskService.patchTask(this.apiTaskList, result).subscribe(tasklist => {
           this.apiTaskList = tasklist;
         })
       }
-    })
 
-    //update the table
-    this.table.renderRows();
+      //update the table
+      this.table.renderRows();
+
+      //update parent
+      this.updateParent();
+
+
+    })
 
   }
 
@@ -84,6 +104,10 @@ export class TaskListComponent implements OnInit {
       console.log(taskList);
       this.apiTaskList = taskList;
     })
+
+    //update parent
+    this.updateParent();
+
   }
 
   editRow(row: any): void {
@@ -95,10 +119,21 @@ export class TaskListComponent implements OnInit {
 
     this.deleteTaskService.deleteTask(this.apiTaskList, row.id).subscribe(tasklist => {
       this.apiTaskList = tasklist;
+
+      //update the table
+      this.table.renderRows();
+
+      //update parent
+      this.updateParent();
+
+
     });
 
     console.log(this.apiTaskList)
-    //update the table
-    this.table.renderRows();
+
+  }
+
+  updateParent(): void {
+    this.updateParentTaskList.emit(this.apiTaskList);
   }
 }

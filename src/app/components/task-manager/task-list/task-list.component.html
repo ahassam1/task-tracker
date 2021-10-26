@@ -1,11 +1,11 @@
 <div class="button-container">
-    <button mat-fab (click)="openDialog()">
+    <button mat-fab (click)="openCreateDialog()">
         <mat-icon>add</mat-icon>
     </button>
 </div>
 
-<ng-container *ngIf = "apiTaskList.length">
-    <div class="table-container mat-elevation-z8">
+<!-- <ng-container *ngIf = "apiTaskList.length"> -->
+    <div class="table-container mat-elevation-z8" [ngClass]="{'table-hidden': apiTaskList.length === 0}">
         <mat-table #table [dataSource]="apiTaskList">
 
             <ng-container matColumnDef="id">
@@ -50,4 +50,4 @@
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
     </div>
-</ng-container>
+<!-- </ng-container> -->

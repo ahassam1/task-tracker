@@ -32,7 +32,7 @@ import { ConfirmDeleteComponent } from './task-list/confirm-delete/confirm-delet
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
   ]
 })
 export class TaskManagerModule { }
