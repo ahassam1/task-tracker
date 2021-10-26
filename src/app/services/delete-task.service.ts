@@ -11,7 +11,7 @@ export class DeleteTaskService {
 
   constructor() { }
 
-      //this a mock API call that deletes a task
+      //this a mock API call that deletes a task and returns the modified store 
       deleteTask(taskArray: Task[], taskId: Number): Observable<Task[]> {
         taskArray.forEach((task, index) => {
           if(task.id === taskId){

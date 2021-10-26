@@ -10,7 +10,7 @@ export class PostTaskService {
 
   constructor() { }
 
-    //this a mock API call that stores a task
+    //this a mock API call that stores a task and returns the modified store
     postTask(taskArray: Task[], task: Task): Observable<Task[]> {
       taskArray.push(task);
       return of(taskArray);

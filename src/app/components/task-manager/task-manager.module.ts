@@ -14,11 +14,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { EditTaskFormComponent } from './task-list/edit-task-form/edit-task-form.component';
+import { ConfirmDeleteComponent } from './task-list/confirm-delete/confirm-delete.component';
 
 
 
 @NgModule({
-  declarations: [TaskManagerComponent, TaskListComponent, TaskStatusComponent, CreateTaskFormComponent],
+  declarations: [TaskManagerComponent, TaskListComponent, TaskStatusComponent, CreateTaskFormComponent, EditTaskFormComponent, ConfirmDeleteComponent],
   imports: [
     CommonModule,
     TaskManagerRoutingModule,

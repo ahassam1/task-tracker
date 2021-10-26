@@ -6,6 +6,8 @@ import { GetTasksService } from 'src/app/services/get-tasks.service';
 import { PostTaskService } from 'src/app/services/post-task.service';
 import { MatTable } from '@angular/material/table';
 import { DeleteTaskService } from 'src/app/services/delete-task.service';
+import { EditTaskFormComponent } from './edit-task-form/edit-task-form.component';
+import { EditTaskService } from 'src/app/services/edit-task.service';
 
 
 @Component({
@@ -24,7 +26,8 @@ export class TaskListComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private getTasksService: GetTasksService,
     private postTaskService: PostTaskService,
-    private deleteTaskService: DeleteTaskService) { }
+    private deleteTaskService: DeleteTaskService,
+    private editTaskService: EditTaskService) { }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(CreateTaskFormComponent, {
@@ -41,11 +44,8 @@ export class TaskListComponent implements OnInit {
           estimate: result.estimate,
           estimateUnit: result.estimateUnit,
           state: result.state,
-        })
-
-        // mocking the get API call here
-        this.getTasksService.getTasks(this.apiTaskList).subscribe(taskList => {
-          this.apiTaskList = taskList;
+        }).subscribe(tasklist => {
+          this.apiTaskList = tasklist;
         })
 
         //update the table
@@ -55,6 +55,25 @@ export class TaskListComponent implements OnInit {
         this.currentId++;
       }
     });
+  }
+
+  openEditDialog(row: any): void {
+    let dialogRef = this.dialog.open(EditTaskFormComponent, {
+      width: '700px',
+      data: { row }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.editTaskService.patchTask(this.apiTaskList, result).subscribe(tasklist => {
+          this.apiTaskList = tasklist;
+        })
+      }
+    })
+
+    //update the table
+    this.table.renderRows();
+
   }
 
   ngOnInit(): void {
@@ -68,6 +87,7 @@ export class TaskListComponent implements OnInit {
   }
 
   editRow(row: any): void {
+    this.openEditDialog(row);
     console.log(row);
   }
 
