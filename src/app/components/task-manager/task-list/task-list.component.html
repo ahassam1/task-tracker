@@ -40,8 +40,8 @@
         <ng-container matColumnDef= 'action'>
             <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
             <mat-cell *matCellDef="let row">
-                <mat-icon class = 'edit-button'>edit</mat-icon>
-                <mat-icon class = 'delete-button'>delete</mat-icon>
+                <mat-icon class = 'edit-button' (click)="editRow(row)">edit</mat-icon>
+                <mat-icon class = 'delete-button' (click)="deleteRow(row)">delete</mat-icon>
              </mat-cell>
         </ng-container>
 

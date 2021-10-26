@@ -5,8 +5,7 @@ import { Task } from 'src/app/models/task.model';
 import { GetTasksService } from 'src/app/services/get-tasks.service';
 import { PostTaskService } from 'src/app/services/post-task.service';
 import { MatTable } from '@angular/material/table';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-
+import { DeleteTaskService } from 'src/app/services/delete-task.service';
 
 
 @Component({
@@ -24,7 +23,8 @@ export class TaskListComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     private getTasksService: GetTasksService,
-    private postTaskService: PostTaskService) { }
+    private postTaskService: PostTaskService,
+    private deleteTaskService: DeleteTaskService) { }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(CreateTaskFormComponent, {
@@ -65,5 +65,20 @@ export class TaskListComponent implements OnInit {
       console.log(taskList);
       this.apiTaskList = taskList;
     })
+  }
+
+  editRow(row: any): void {
+    console.log(row);
+  }
+
+  deleteRow(row: any): void {
+
+    this.deleteTaskService.deleteTask(this.apiTaskList, row.id).subscribe(tasklist => {
+      this.apiTaskList = tasklist;
+    });
+
+    console.log(this.apiTaskList)
+    //update the table
+    this.table.renderRows();
   }
 }

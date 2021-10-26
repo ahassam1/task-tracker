@@ -2,8 +2,8 @@
     display: flex;
     justify-content: right;
 }
-.delete-button {
-    margin-left: 20px;
+.delete-button, .edit-button {
+    cursor: pointer;
 }
 
 .mat-row {
