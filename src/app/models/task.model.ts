@@ -3,5 +3,6 @@ export class Task {
     name: string | undefined;
     description: string | undefined;
     estimate: number | undefined;
+    estimateUnit: string | undefined;
     state: string| undefined;
 }

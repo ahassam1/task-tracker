@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input'; 
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -28,7 +29,8 @@ import { MatRadioModule } from '@angular/material/radio';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ]
 })
 export class TaskManagerModule { }

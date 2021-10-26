@@ -28,9 +28,7 @@ export class CreateTaskFormComponent implements OnInit {
     });
   }
 
-
   onSubmit(taskForm) {
-    console.log(taskForm);
     this.dialogRef.close(taskForm.value)
   }
   

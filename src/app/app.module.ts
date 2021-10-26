@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input'; 
+import { MatTableModule } from '@angular/material/table';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
