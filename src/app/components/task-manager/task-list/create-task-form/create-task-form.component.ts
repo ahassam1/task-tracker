@@ -12,7 +12,7 @@ export class CreateTaskFormComponent implements OnInit {
 
   taskForm: FormGroup;
   units = [ 'minutes', 'hours', 'days', 'months'];
-  states = ['Onhold', 'In-Progress', 'Complete'];
+  states = ['Planned', 'In-Progress', 'Complete'];
 
   constructor(public dialogRef: MatDialogRef<TaskListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -23,7 +23,7 @@ export class CreateTaskFormComponent implements OnInit {
       description: new FormControl('', Validators.required),
       estimate: new FormControl('', [Validators.required]),
       estimateUnit: new FormControl('minutes', Validators.required),
-      state: new FormControl('Onhold', Validators.required)
+      state: new FormControl('Planned', Validators.required)
     });
   }
 

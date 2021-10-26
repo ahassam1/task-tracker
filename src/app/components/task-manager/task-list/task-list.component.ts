@@ -61,13 +61,7 @@ export class TaskListComponent implements OnInit {
         })
       }
 
-
-
     });
-
-
-
-
 
   }
 
@@ -104,10 +98,6 @@ export class TaskListComponent implements OnInit {
       console.log(taskList);
       this.apiTaskList = taskList;
     })
-
-    //update parent
-    this.updateParent();
-
   }
 
   editRow(row: any): void {
