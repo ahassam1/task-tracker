@@ -1,50 +1,75 @@
 <div class='task-manager-grid-container'>
 
-    <mat-card class='tutorial-card'>
-        <mat-card-content>
-            Start by pressing the
-            <button class = 'info-button' mat-mini-fab>
-                <mat-icon>add</mat-icon>
-            </button>
-            button to create a new task!
-        </mat-card-content>
-    </mat-card>
+    <ng-container *ngIf="taskList.length === 0; else taskCreated">
+        <mat-card class='tutorial-card'>
+            <mat-card-content>
+                <p>
+                    Start by pressing the
+                    <button class='info-button' mat-mini-fab>
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    button to create a new task!
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </ng-container>
+
+    <ng-template #taskCreated>
+        <mat-card class='tutorial-card'>
+            <mat-card-content>
+                <p>
+                    Press the
+                    <button class='info-button' mat-mini-fab>
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    button to create more new tasks!
+                </p>
+                <p>
+                    Press the <mat-icon>edit</mat-icon> button to edit your task or change the status.
+                </p>
+                <p>
+                    Press the <mat-icon>delete</mat-icon> button to delete as task.
+                </p>
+            </mat-card-content>
+        </mat-card>
+
+    </ng-template>
 
     <mat-card class='task-list-container'>
         <mat-card-title>Task List</mat-card-title>
 
-        <app-task-list (updateParentTaskList) = "taskListUpdate($event)"></app-task-list>
+        <app-task-list (updateParentTaskList)="taskListUpdate($event)"></app-task-list>
     </mat-card>
 
     <mat-card class='task-status-container'>
         <mat-card-title>Task Status (Hours)</mat-card-title>
-<mat-list>
-    <mat-list-item>
-        <mat-icon>schedule</mat-icon>
-        <h4>Total Time for Tasks In Planning:</h4>
-        <p class ='value'>{{totalPlanned}}</p>
-    </mat-list-item>
+        <mat-list>
+            <mat-list-item>
+                <mat-icon>schedule</mat-icon>
+                <h4>Total Time for Tasks In Planning:</h4>
+                <p class='value'>{{totalPlanned}}</p>
+            </mat-list-item>
 
-    <mat-list-item>
-        <mat-icon>work</mat-icon>
-        <h4>Total Time for Tasks In-Progress:</h4>
-        <p class ='value'>{{totalInProgress}}</p>
-    </mat-list-item>
+            <mat-list-item>
+                <mat-icon>work</mat-icon>
+                <h4>Total Time for Tasks In-Progress:</h4>
+                <p class='value'>{{totalInProgress}}</p>
+            </mat-list-item>
 
-    <mat-list-item>
-        <mat-icon>done</mat-icon>
-        <h4>Total Time for Tasks Complete:</h4>
-        <p class ='value'>{{totalComplete}}</p>
-    </mat-list-item>
+            <mat-list-item>
+                <mat-icon>done</mat-icon>
+                <h4>Total Time for Tasks Complete:</h4>
+                <p class='value'>{{totalComplete}}</p>
+            </mat-list-item>
 
-    <mat-divider></mat-divider>
+            <mat-divider></mat-divider>
 
-    <mat-list-item>
-        <mat-icon>unpublished</mat-icon>
-        <h4>Total Time for Tasks Not Complete:</h4>
-        <p class ='value'>{{total}}</p>
-    </mat-list-item>
-</mat-list>
+            <mat-list-item>
+                <mat-icon>unpublished</mat-icon>
+                <h4>Total Time for Tasks Not Complete:</h4>
+                <p class='value'>{{total}}</p>
+            </mat-list-item>
+        </mat-list>
     </mat-card>
 
 </div>

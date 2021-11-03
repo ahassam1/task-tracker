@@ -14,9 +14,6 @@ export class TaskManagerComponent implements OnInit {
   totalComplete: number = 0;
   total: number = 0;
 
-
-
-
   constructor() { }
 
   ngOnInit(): void {
