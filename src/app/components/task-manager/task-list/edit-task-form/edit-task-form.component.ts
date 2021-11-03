@@ -15,7 +15,7 @@ export class EditTaskFormComponent implements OnInit {
 
   taskForm: FormGroup;
   units = ['minutes', 'hours', 'days', 'months'];
-  states = ['Onhold', 'In-Progress', 'Complete'];
+  states = ['Planned', 'In-Progress', 'Complete'];
 
   ngOnInit(): void {
 
