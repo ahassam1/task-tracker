@@ -8,6 +8,7 @@ import { MatTable } from '@angular/material/table';
 import { DeleteTaskService } from 'src/app/services/delete-task.service';
 import { EditTaskFormComponent } from './edit-task-form/edit-task-form.component';
 import { EditTaskService } from 'src/app/services/edit-task.service';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 
 @Component({
@@ -90,6 +91,29 @@ export class TaskListComponent implements OnInit {
 
   }
 
+  openDeleteDialog(row: any): void {
+    let dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      data: { row }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //mock patch API call
+        this.deleteTaskService.deleteTask(this.apiTaskList, row.id).subscribe(tasklist => {
+          this.apiTaskList = tasklist;
+        });
+      }
+
+      //update the table
+      this.table.renderRows();
+
+      //update parent
+      this.updateParent();
+
+    })
+
+  }
+
   ngOnInit(): void {
 
     // mocking the get API call here, but this will always return an empty array. 
@@ -106,21 +130,8 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteRow(row: any): void {
-
-    this.deleteTaskService.deleteTask(this.apiTaskList, row.id).subscribe(tasklist => {
-      this.apiTaskList = tasklist;
-
-      //update the table
-      this.table.renderRows();
-
-      //update parent
-      this.updateParent();
-
-
-    });
-
+    this.openDeleteDialog(row);
     // console.log(this.apiTaskList)
-
   }
 
   updateParent(): void {

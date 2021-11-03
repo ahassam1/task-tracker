@@ -14,14 +14,14 @@
             <input matInput formControlName="estimate" placeholder="Estimate">
         </mat-form-field>
 
-        <div>
+        <div class = 'unit-container'>
             <label>Estimate Unit: </label>
             <mat-radio-group formControlName="estimateUnit">
                 <mat-radio-button *ngFor = "let unit of units" value="{{unit}}">{{unit}}</mat-radio-button>
             </mat-radio-group>
         </div>
 
-        <div>
+        <div class = 'state-container'>
             <label>State of Task: </label>
             <mat-radio-group formControlName="state">
                 <mat-radio-button *ngFor = "let state of states" value="{{state}}">{{state}}</mat-radio-button>

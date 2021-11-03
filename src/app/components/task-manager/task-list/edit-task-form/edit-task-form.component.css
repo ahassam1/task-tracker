@@ -6,3 +6,12 @@
     justify-content: center;
     text-align:center;
 }
+.state-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.unit-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
